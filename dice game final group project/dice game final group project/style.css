@@ -1,0 +1,272 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;   
+}
+
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+body {
+  background-size: cover;
+  background-position: center;
+  font-weight: 300;
+  position: relative;
+  height: 100vh;
+  color: black;
+}
+
+/* Background video css */
+#background-video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  object-fit: cover;
+}
+.wrapper {
+  width: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(102, 4, 4);
+  box-shadow: 0px 10px 50px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+.settings-icon,
+.sound-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 10px; 
+}
+
+.sound-icon {
+  left: 40px; 
+}
+/* Instruction card styles */
+.instruction-card {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  max-width: 80%;
+}
+
+.instruction-content {
+  text-align: center;
+}
+
+.close-btn {
+  margin-top: 20px;
+  background-color: yellow;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background-color:  black;
+}
+
+.hidden {
+  display: none;
+}
+/* Panels */
+.player-0-panel,
+.player-1-panel {
+  width: 50%;
+  float: left;
+  height: 600px;
+  padding: 100px;
+}
+
+/* players code */
+
+.player-name {
+  font-size: 20px;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 100;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  position: relative;
+  background-color: black; 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.player-score {
+  text-align: center;
+  font-size: 80px;
+  font-weight: 100;
+  color: yellow;
+  margin-bottom: 130px;
+}
+
+.active { background-color: white; }
+.active .player-name { font-weight: 300; }
+
+.active .player-name::after {
+  content: "\1F3B2"; 
+  font-family: "RemixIcon";
+  font-size: 32px;
+  position: absolute;
+  top: -3px;
+  right: 10px;
+  
+}
+
+.player-current-box {
+  background-color: black;
+  color: #fff;
+  width: 40%;
+  margin: 0 auto;
+  padding: 12px;
+  text-align: center;
+}
+
+.player-current-score {
+  font-size: 30px;
+}
+.instruction-content p {
+  font-size: 25px; 
+  font-weight: bold;
+}
+
+/* Buttons */
+button {
+  position: absolute;
+  width: 200px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: black;
+  background: none;
+  border: none;
+  font-family: Lato;
+  font-size: 20px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 300;
+  transition: background-color 0.3s, color 0.3s;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+button:hover { font-weight: 600; }
+button:hover i { margin-right: 20px; }
+
+button:focus {
+  outline: none;
+}
+
+/* Icons */
+i {
+  color: yellow;
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 32px;
+  line-height: 1;
+  vertical-align: text-top;
+  margin-top: -4px;
+  transition: margin 0.3s;
+}
+
+/* buttons */ 
+.btn-new { top: 45px;}
+.btn-roll { top: 403px;}
+.btn-hold { top: 467px;}
+
+.btn-new, .btn-roll, .btn-hold {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  display: inline-block;
+}
+.btn-new{
+  margin-top: 20px;
+}
+.btn-roll{
+  margin-top: 50px;
+}
+.btn-hold{
+  margin-top: 70px;
+}
+.player-current-label {
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: white;
+}
+
+/* Dice images */
+.dice {
+  position: absolute;
+  left: 50%;
+  top: 178px;
+  transform: translateX(-50%);
+  height: 100px;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+#dice1 { top: 140px; }
+#dice2 { top: 290px; }
+
+/* Winner status */ 
+.winner { background-color: #f7f7f7; }
+.winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+/* Winning score input */
+#winningScore {
+  position: absolute;
+  top: 520px;
+  left: 50%;
+  text-transform: uppercase; 
+  color: black;
+  font-size: 18px;
+  font-family: 'Lato';
+  text-align: center;
+  padding: 10px;
+  width: 160px;
+  transform: translateX(-50%);
+}
+
+#winningScore:focus { outline: none; }
+
+.bottom1 {
+  margin-top:40px;
+}
+
+.btn {
+  background-color: #d6c4c9;
+  color: #180101;
+  font-size: 15px; 
+  padding: 10px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  margin-top: 10px;
+}
